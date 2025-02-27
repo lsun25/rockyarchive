@@ -12,48 +12,32 @@
 
 <body>
 
-    <header>
-        <a href="index.html" class="logo-link">
-            <img src="assets/headerlogo.png" alt="Home" class="logo">
-        </a>
-    </header>
-
-
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About ROCKY</a>
-        <a href="sns.html">SNS Archive</a>
-        <a href="works.html">Works Archive</a>
-        <a href="media.html">Media Archive</a>
-        <a href="merch.html">Merch Archive</a>
-    </nav>
+    <div id="header-placeholder"></div> <!-- Header will load here -->
+    <div id="navbar-placeholder"></div> <!-- Navbar will load here -->
 
     <div>
         <h2>Welcome to ROCKY's Archive</h2>
         <p>This website serves as an archive for all things ROCKY. Click the links above to navigate.</p>
     </div>
 
-    <footer>
-        
-        <h7>Find ROCKY on:<br></h7>
-        <a href="https://www.instagram.com/p_rocky" target="_blank">
-            <button>Instagram</button>
-        </a>
-        <a href="https://x.com/p_rockyent" target="_blank">
-            <button>Twitter</button>
-        </a>
-        <a href="https://www.youtube.com/@ROCKY_Onefineday_Ent." target="_blank">
-            <button>Youtube</button>
-        </a>
-        <a href="https://open.spotify.com/artist/3bQABAi10Xqg1WsMAhYdBZ" target="_blank">
-            <button>Spotify</button>
-        </a>
-        <a href="https://soundcloud.com/rockycl0ud" target="_blank">
-            <button>Soundcloud</button>
-        </a>
+    <div id="footer-placeholder"></div>
+    
+<script>
+    function loadComponent(file, elementId) {
+        fetch(file)
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById(elementId).innerHTML = data;
+            })
+            .catch(error => console.error("Error loading component:", error));
+    }
 
-        <p>&copy; 2025 ROCKY Archive. All Rights Reserved.</p>
-    </footer>
+    document.addEventListener("DOMContentLoaded", function() {
+        loadComponent("components/header.html", "header-placeholder");
+        loadComponent("components/navbar.html", "navbar-placeholder");
+        loadComponent("components/footer.html", "footer-placeholder");
+    });
+</script>
 
 </body>
 </html>
