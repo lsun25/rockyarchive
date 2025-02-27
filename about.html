@@ -12,26 +12,28 @@
 
 <body>
 
-    <header>
-        <a href="index.html" class="logo-link">
-            <img src="assets/headerlogo.png" alt="Home" class="logo">
-        </a>
-    </header>
+    <div id="header-placeholder"></div> <!-- Header will load here -->
+    <div id="navbar-placeholder"></div> <!-- Navbar will load here -->
 
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About ROCKY</a>
-        <a href="sns.html">SNS Archive</a>
-        <a href="works.html">Works Archive</a>
-        <a href="media.html">Media Archive</a>
-        <a href="merch.html">Merch Archive</a>
-    </nav>
+    <div id="footer-placeholder"></div> <!-- Footer will load here -->
+
+    <script>
+        function loadComponent(file, elementId) {
+            fetch(file)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById(elementId).innerHTML = data;
+                })
+                .catch(error => console.error("Error loading component:", error));
+        }
+    
+        document.addEventListener("DOMContentLoaded", function() {
+            loadComponent("components/header.html", "header-placeholder");
+            loadComponent("components/navbar.html", "navbar-placeholder");
+            loadComponent("components/footer.html", "footer-placeholder");
+        });
+    </script>
 
     
-
-    <footer>
-        &copy; 2025 ROCKY Archive. All Rights Reserved.
-    </footer>
-
 </body>
 </html>
