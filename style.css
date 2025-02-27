@@ -16,6 +16,28 @@ header {
     font-size: 24px;
 }
 
+/* Logo in the Header */
+.logo-link {
+    display: inline-block; /* Ensures it behaves like a nav item */
+    padding: 5px 10px; /* Matches nav link spacing */
+}
+.logo {
+    width: 50px;  /* Adjust size as needed */
+    height: auto;  /* Keeps aspect ratio */
+    transition: opacity 0.3s ease-in-out; /* Smooth hover effect */
+}
+
+/* Apply the Same Hover Effect as Navbar Links */
+.logo-link:hover {
+    background: #d43f4d;  /* Same hover effect as nav links */
+    border-radius: 5px;
+}
+
+/* Optional: Make the Hover Effect Apply to the Logo */
+.logo-link:hover .logo {
+    opacity: 0.8; /* Slight transparency on hover */
+}
+
 /* Navigation Bar */
 nav {
     background: #a02b38;  /* Slightly Brighter Red */
